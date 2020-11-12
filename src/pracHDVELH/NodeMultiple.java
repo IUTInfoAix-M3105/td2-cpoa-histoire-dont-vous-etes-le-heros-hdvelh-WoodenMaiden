@@ -16,10 +16,14 @@ public class NodeMultiple {
 	public static final String ERROR_MSG_INDEX_OUT_OF_RANGE = "Index out of range";
 	public static int NODE_MAX_ARITY = 10;
 
+	private Object data;
+	private NodeMultiple[] daughters;
+
+
 	/* Overridden methods */
 	@Override
 	public String toString() {
-		/* TO BE COMPLETED */
+		return "" + data.toString();
 	}
 
 	/* Getters/Setters */
@@ -32,7 +36,7 @@ public class NodeMultiple {
 	 * @return the {@code i}th daughter node, or {@code null} if it does not exist.
 	 */
 	public NodeMultiple getDaughter(int i) {
-		/* TO BE COMPLETED */
+		return self.daughters[i];
 	}
 
 	/**
@@ -50,7 +54,7 @@ public class NodeMultiple {
 	 * @param i        the daughter node's index
 	 */
 	public void setDaughter(NodeMultiple daughter, int i) {
-		/* TO BE COMPLETED */
+		self.daughters[i] = daughter;
 	}
 
 	/**
