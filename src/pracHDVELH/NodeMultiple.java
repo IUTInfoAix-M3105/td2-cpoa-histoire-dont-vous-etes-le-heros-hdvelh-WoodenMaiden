@@ -17,13 +17,22 @@ public class NodeMultiple {
 	public static int NODE_MAX_ARITY = 10;
 
 	private Object data;
-	private NodeMultiple[] daughters = new NodeMultiple[NODE_MAX_ARITY];
+	private NodeMultiple[] daughters;
 
 
 	/* Overridden methods */
 	@Override
 	public String toString() {
 		return data.toString();
+
+		/*
+			StringBuilder sb = new StringBuilder();
+			sb.append(data.toString());
+			sb.append("\ndaughters: ");
+			sb.append(daughters);
+			sb.append("("+daughters.length+")");
+			return sb.toString();
+		 */
 	}
 
 	/* Getters/Setters */
@@ -36,6 +45,9 @@ public class NodeMultiple {
 	 * @return the {@code i}th daughter node, or {@code null} if it does not exist.
 	 */
 	public NodeMultiple getDaughter(int i) {
+		if (i >= NODE_MAX_ARITY || i<0){
+			ErrorNaiveHandler.abort(ERROR_STATUS_INDEX_OUT_OF_RANGE, ERROR_MSG_INDEX_OUT_OF_RANGE+'@'+getClass()+".getDaughter()");
+		}
 		return this.daughters[i];
 	}
 
@@ -61,7 +73,7 @@ public class NodeMultiple {
 	 * @return all the daughters
 	 */
 	public NodeMultiple[] getDaughters() {
-		return daughters;
+		return this.daughters;
 	}
 
 	/**
@@ -129,7 +141,8 @@ public class NodeMultiple {
 	 * Default constructor.
 	 */
 	public NodeMultiple() {
-		this.data = new Object();
+		this.setData(null);
+		daughters = new NodeMultiple[NODE_MAX_ARITY];
 	}
 
 	/**
@@ -139,7 +152,8 @@ public class NodeMultiple {
 	 * @param data
 	 */
 	public NodeMultiple(Object data) {
-		this.data = data;
+		this();
+		this.setData(data);
 	}
 
 }

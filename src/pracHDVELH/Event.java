@@ -18,6 +18,16 @@ public class Event extends NodeMultiple {
 	public static final String PROMPT_ANSWER = "Answer: ";
 	public static final String WARNING_MSG_INTEGER_EXPECTED = "Please input a integer within range!";
 
+	private int id;
+	private String intitule;
+	private String[] possibleAnswers;
+	private GUIManager gui;
+
+	@Override
+	public String toString(){
+		return "Event: #"+getId()+" ("+getClass()+"): "+ getData();
+	}
+
 	/**
 	 * @return the playerAnswer
 	 */
@@ -115,8 +125,21 @@ public class Event extends NodeMultiple {
 	}
 
 	/* Methods */
-	/* TO BE COMPLETED */
+
+	public Event ()
+	{
 	}
+	public Event (GUIManager gui, String data)
+	{
+		this.gui = gui;
+		this.intitule = data;
+	}
+
+	public Event ()
+	{
+		this(new GUIManager(), null);
+	}
+
 }
 
 // eof
