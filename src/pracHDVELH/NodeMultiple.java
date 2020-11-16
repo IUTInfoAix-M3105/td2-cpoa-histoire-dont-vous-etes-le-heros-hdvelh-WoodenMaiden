@@ -129,7 +129,7 @@ public class NodeMultiple {
 	 * Default constructor.
 	 */
 	public NodeMultiple() {
-		/* TO BE COMPLETED */
+		this.data = new Object();
 	}
 
 	/**
@@ -139,7 +139,9 @@ public class NodeMultiple {
 	 * @param data
 	 */
 	public NodeMultiple(Object data) {
-		/* TO BE COMPLETED */
+		this.data = data;
+	}
+
 }
 
 // eof
