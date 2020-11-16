@@ -416,9 +416,9 @@
 										"$ref": "AAAAAAF1vAs1DMOm8FI="
 									},
 									"font": "Arial;13;0",
-									"left": 971,
+									"left": 970,
 									"top": 161,
-									"width": 5.05908203125,
+									"width": 6.5,
 									"height": 13,
 									"alpha": 0.5235987755982988,
 									"distance": 25,
@@ -1791,12 +1791,12 @@
 										"$ref": "AAAAAAF1vA2/uMfWlwY="
 									},
 									"font": "Arial;13;0",
-									"left": 1032,
-									"top": 429,
+									"left": 863,
+									"top": 520,
 									"width": 36.51171875,
 									"height": 13,
-									"alpha": 1.5707963267948966,
-									"distance": 15,
+									"alpha": -3.2949225852372708,
+									"distance": 194.33990840792325,
 									"hostEdge": {
 										"$ref": "AAAAAAF1vA2/uMfaXB4="
 									},
@@ -2211,7 +2211,8 @@
 								"$ref": "AAAAAAF1u98A4L1GHDI="
 							},
 							"name": "Titre",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -2220,7 +2221,8 @@
 								"$ref": "AAAAAAF1u98A4L1GHDI="
 							},
 							"name": "description",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",

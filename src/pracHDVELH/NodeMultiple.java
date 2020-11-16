@@ -17,13 +17,13 @@ public class NodeMultiple {
 	public static int NODE_MAX_ARITY = 10;
 
 	private Object data;
-	private NodeMultiple[] daughters;
+	private NodeMultiple[] daughters = new NodeMultiple[NODE_MAX_ARITY];
 
 
 	/* Overridden methods */
 	@Override
 	public String toString() {
-		return "" + data.toString();
+		return data.toString();
 	}
 
 	/* Getters/Setters */
@@ -36,7 +36,7 @@ public class NodeMultiple {
 	 * @return the {@code i}th daughter node, or {@code null} if it does not exist.
 	 */
 	public NodeMultiple getDaughter(int i) {
-		return self.daughters[i];
+		return this.daughters[i];
 	}
 
 	/**
@@ -54,21 +54,21 @@ public class NodeMultiple {
 	 * @param i        the daughter node's index
 	 */
 	public void setDaughter(NodeMultiple daughter, int i) {
-		self.daughters[i] = daughter;
+		this.daughters[i] = daughter;
 	}
 
 	/**
 	 * @return all the daughters
 	 */
 	public NodeMultiple[] getDaughters() {
-		/* TO BE COMPLETED */
+		return daughters;
 	}
 
 	/**
 	 * @param daughters the daughters to set
 	 */
 	public void setDaughters(NodeMultiple[] daughters) {
-		/* TO BE COMPLETED */
+		this.daughters = daughters;
 	}
 
 	/**
@@ -80,21 +80,35 @@ public class NodeMultiple {
 	 * @param daughter
 	 */
 	public void addDaughter(NodeMultiple daughter) {
-		/* TO BE COMPLETED */
+//		for (int i =0; i < NODE_MAX_ARITY; ++i){
+//			if (this.daughters[i] == null) this.daughters[i] = daughter;
+//		}
+
+		 //correction
+
+		 if (daughter == null){
+		 	return;
+		 }
+		 int i = 0;
+		 while (daughters[i] != null && i < NODE_MAX_ARITY) {i++;}
+		 if (i < NODE_MAX_ARITY){
+		 	this.daughters[i] = daughter;
+		 }
+
 	}
 
 	/**
 	 * @return the content data
 	 */
 	public Object getData() {
-		/* TO BE COMPLETED */
+		return this.data;
 	}
 
 	/**
 	 * @param data
 	 */
 	public void setData(Object data) {
-		/* TO BE COMPLETED */
+		this.data = data;
 	}
 
 	/**
@@ -102,7 +116,12 @@ public class NodeMultiple {
 	 *         daughter node.
 	 */
 	public boolean hasDaughters() {
-		/* TO BE COMPLETED */
+		int i = 0;
+		while (i < NODE_MAX_ARITY){
+			if (this.daughters[i] != null) return true;
+			++i;
+		}
+		return false;
 	}
 
 	/* Constructors */
