@@ -21,7 +21,9 @@ public class Event extends NodeMultiple {
 	private int id;
 	private String intitule;
 	private String[] possibleAnswers;
+	private int answerChosen;
 	private GUIManager gui;
+	private Scanner sc;
 
 	@Override
 	public String toString(){
@@ -32,7 +34,7 @@ public class Event extends NodeMultiple {
 	 * @return the playerAnswer
 	 */
 	public String getPlayerAnswer() {
-		/* TO BE COMPLETED */
+		return possibleAnswers[answerChosen];
 	}
 
 	/**
@@ -53,14 +55,14 @@ public class Event extends NodeMultiple {
 	 * @param reader the reader to set
 	 */
 	public void setReader(Scanner reader) {
-		/* TO BE COMPLETED */
+		this.sc = reader;
 	}
 
 	/**
 	 * @return the chosenPath
 	 */
 	public int getChosenPath() {
-		/* TO BE COMPLETED */
+		return answerChosen;
 	}
 
 	/**
@@ -126,9 +128,6 @@ public class Event extends NodeMultiple {
 
 	/* Methods */
 
-	public Event ()
-	{
-	}
 	public Event (GUIManager gui, String data)
 	{
 		this.gui = gui;
