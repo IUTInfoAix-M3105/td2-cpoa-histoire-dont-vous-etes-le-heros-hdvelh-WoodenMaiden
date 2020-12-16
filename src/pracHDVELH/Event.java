@@ -134,9 +134,19 @@ public class Event extends NodeMultiple {
 	}
 
 	public boolean isInRange(int index){
-		NodeMultiple[] mesdaugters = getDaughters();
-		if (mesdaugters[index] != null) return true;
+		if (possibleAnswers[index] != null) return true;
 		return false;
+	}
+
+	public int interpretAnswer(){
+		if (this.playerAnswer == "" || this.playerAnswer == null)
+			ErrorNaiveHandler.abort("Entrez un choix");
+		int i = 0;
+		while (i < possibleAnswers.length){
+			if (this.playerAnswer == this.possibleAnswers[i]) return i;
+		}
+		ErrorNaiveHandler.abort("Évènement non trouvé, essayez encore");
+		return 666;
 	}
 
 	public Event run(){
